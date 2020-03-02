@@ -1,0 +1,347 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-03-02T16:38:45.311Z",
+        "before": [
+          {
+            "result": {
+              "duration": 940643,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LambdaGlue.java:22"
+            }
+          },
+          {
+            "result": {
+              "duration": 15803,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LambdaGlue.java:22"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Rule should fired as person exist",
+        "description": "",
+        "id": "and-connector-scenarios;rule-should-fired-as-person-exist",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4743113,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the person name as \u0027IMRAN\u0027 exist in the facts",
+            "match": {
+              "arguments": [
+                {
+                  "val": "IMRAN",
+                  "offset": 20
+                }
+              ],
+              "location": "AndConnectorStepDefinition.java:27"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2136890,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the following is the address",
+            "match": {
+              "location": "AndConnectorStepDefinition.java:33"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "houseno",
+                  "streetno"
+                ]
+              },
+              {
+                "cells": [
+                  "77",
+                  "BELL COURT"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1434745455,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "rules is triggered",
+            "match": {
+              "location": "AndConnectorStepDefinition.java:41"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1232593,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "\u00271\u0027 rule is executed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 1
+                }
+              ],
+              "location": "AndConnectorStepDefinition.java:49"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "AND Connector Scenarios",
+    "description": "",
+    "id": "and-connector-scenarios",
+    "keyword": "Feature",
+    "uri": "file:src/test/features/andConnector.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-03-02T16:38:46.761Z",
+        "before": [
+          {
+            "result": {
+              "duration": 14222,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LambdaGlue.java:22"
+            }
+          },
+          {
+            "result": {
+              "duration": 4346,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LambdaGlue.java:22"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Rule doesn\u0027t fired as person exist",
+        "description": "",
+        "id": "not-connector-scenarios;rule-doesn-t-fired-as-person-exist",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 43062,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the person first name as \u0027VARUN\u0027 and last name as \u0027SINGH\u0027 exist in the facts",
+            "match": {
+              "arguments": [
+                {
+                  "val": "VARUN",
+                  "offset": 26
+                },
+                {
+                  "val": "SINGH",
+                  "offset": 51
+                }
+              ],
+              "location": "NotConnectorStepDefinition.java:27"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 366222,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the following address exist for person",
+            "match": {
+              "location": "NotConnectorStepDefinition.java:33"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "houseno",
+                  "streetno"
+                ]
+              },
+              {
+                "cells": [
+                  "77",
+                  "BELL COURT"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 15370277,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "rules get fired",
+            "match": {
+              "location": "NotConnectorStepDefinition.java:41"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 50568,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "atleast \u00270\u0027 rule is executed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 9
+                }
+              ],
+              "location": "NotConnectorStepDefinition.java:49"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-03-02T16:38:46.786Z",
+        "before": [
+          {
+            "result": {
+              "duration": 11851,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LambdaGlue.java:22"
+            }
+          },
+          {
+            "result": {
+              "duration": 4741,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LambdaGlue.java:22"
+            }
+          }
+        ],
+        "line": 11,
+        "name": "Rule fired as person doesn\u0027t exist",
+        "description": "",
+        "id": "not-connector-scenarios;rule-fired-as-person-doesn-t-exist",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 25284,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "the person first name as \u0027VARUN\u0027 and last name as \u0027SINGH\u0027 exist in the facts",
+            "match": {
+              "arguments": [
+                {
+                  "val": "VARUN",
+                  "offset": 26
+                },
+                {
+                  "val": "SINGH",
+                  "offset": 51
+                }
+              ],
+              "location": "NotConnectorStepDefinition.java:27"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 35161,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "the following address exist for person",
+            "match": {
+              "location": "NotConnectorStepDefinition.java:33"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "houseno",
+                  "streetno"
+                ]
+              },
+              {
+                "cells": [
+                  "78",
+                  "BELL COURT"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1207309,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "rules get fired",
+            "match": {
+              "location": "NotConnectorStepDefinition.java:41"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 26074,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "atleast \u00271\u0027 rule is executed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 9
+                }
+              ],
+              "location": "NotConnectorStepDefinition.java:49"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Not Connector Scenarios",
+    "description": "",
+    "id": "not-connector-scenarios",
+    "keyword": "Feature",
+    "uri": "file:src/test/features/notConnector.feature",
+    "tags": []
+  }
+]

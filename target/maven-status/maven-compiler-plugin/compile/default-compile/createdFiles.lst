@@ -1,0 +1,10 @@
+facts\Department.class
+facts\Company.class
+facts\Team.class
+facts\Address.class
+rules\VerifyRuleWithNotKeyword.class
+rules\VerifyRuleWithMultiThreadEvaluation.class
+facts\Person.class
+facts\Tribe.class
+rules\VerifyOldDataRuleWithXPath.class
+rules\VerifyRuleWithXPath.class
