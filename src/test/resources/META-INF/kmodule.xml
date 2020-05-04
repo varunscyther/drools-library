@@ -1,15 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
-    <kbase name="rules" packages="rules">
-        <ksession name="ksession-rules"/>
-    </kbase>
-    <kbase name="dtables" packages="dtables">
-        <ksession name="ksession-dtables"/>
-    </kbase>
-    <kbase name="process" packages="process">
-        <ksession name="ksession-process"/>
-    </kbase>
-    <kbase name="multi-threaded-rules" packages="multiThrededRule">
-        <ksession name="ksession-multithreded-rules"/>
-    </kbase>
+<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.drools.org/xsd/kmodule">
+<kbase name="rules" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.">
+    <ksession name="rules-session" default="true"/>
+</kbase>
+<kbase name="multiThreadedRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.multiThreaded">
+    <ksession name="multiThreadedRule-session" default="true"/>
+</kbase>
 </kmodule>

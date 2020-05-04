@@ -1,7 +1,7 @@
-package drools
+package io.github.varunscyther.drools
 
-import facts.Person;
-import facts.Address;
+import io.github.varunscyther.drools.facts.Person;
+import io.github.varunscyther.drools.facts.Address;
 
 rule "Rule with nested None"
 dialect "java"

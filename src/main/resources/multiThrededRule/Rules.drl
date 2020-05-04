@@ -1,9 +1,9 @@
-package drools
+package io.github.varunscyther.drools.multiThreaded
 
-import facts.Company;
-import facts.Department;
-import facts.Tribe;
-import facts.Team;
+import io.github.varunscyther.drools.facts.Company;
+import io.github.varunscyther.drools.facts.Department;
+import io.github.varunscyther.drools.facts.Tribe;
+import io.github.varunscyther.drools.facts.Team;
 
 rule "Rule with XPath"
 dialect "java"
