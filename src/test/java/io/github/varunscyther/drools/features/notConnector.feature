@@ -14,4 +14,4 @@ Feature: Not Connector Scenarios
   | houseno | streetno    |
   | 78 	    | BELL COURT  |
     When rules get fired
-    Then atleast '1' rule is executed
+    Then atleast '2' rule is executed

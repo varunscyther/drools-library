@@ -44,6 +44,7 @@ public class AndConnectorStepDefinition implements En{
             KieSession kSession =  kContainer.newKieSession("rules-session");
             kSession.insert(person);
             noOfRuleFired = kSession.fireAllRules();
+            kSession.dispose();
         });
 
         Then("'(\\d+)' rule is executed", (Integer count) ->{

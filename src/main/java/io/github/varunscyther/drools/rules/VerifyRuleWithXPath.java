@@ -18,7 +18,7 @@ public class VerifyRuleWithXPath {
 
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession =  kContainer.newKieSession("ksession-rules");
+        KieSession kSession =  kContainer.newKieSession("rules-session");
         List<Department> listOfDep = new ArrayList<Department>();
         List<Tribe> listOfTribe = new ArrayList<Tribe>();
         List<Team> listOfTeam = new ArrayList<Team>();
@@ -32,6 +32,7 @@ public class VerifyRuleWithXPath {
         kSession.insert(cmp);
 
         int fired = kSession.fireAllRules();
+        kSession.dispose();
         System.out.println( "Number of Rules executed = " + fired );
         System.out.println( "Company Name : " + cmp.getCmpName());
 

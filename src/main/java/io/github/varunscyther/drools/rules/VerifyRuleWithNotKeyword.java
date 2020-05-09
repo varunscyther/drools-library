@@ -13,7 +13,7 @@ public class VerifyRuleWithNotKeyword {
 
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession =  kContainer.newKieSession("ksession-rules");
+        KieSession kSession =  kContainer.newKieSession("rules-session");
 
         Person person = new Person("VARUN", "SINGH");
         person.setHouseNumber("77");
@@ -22,6 +22,7 @@ public class VerifyRuleWithNotKeyword {
         kSession.insert(person);
 
         int fired = kSession.fireAllRules();
+        kSession.dispose();
         System.out.println( "Number of Rules executed = " + fired );
         System.out.println( "Person Last Name : " + person.getFirstName());
 

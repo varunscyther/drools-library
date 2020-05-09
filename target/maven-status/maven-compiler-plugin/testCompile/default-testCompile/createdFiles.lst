@@ -1,0 +1,4 @@
+io/github/varunscyther/drools/stepdefs/and/AndConnectorStepDefinition.class
+io/github/varunscyther/drools/stepdefs/cucumber/CucumberRunnerTest.class
+io/github/varunscyther/drools/stepdefs/not/NotConnectorStepDefinition.class
+io/github/varunscyther/drools/stepdefs/oldAndNewData/OldAndNewData.class

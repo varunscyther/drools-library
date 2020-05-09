@@ -44,6 +44,7 @@ public class NotConnectorStepDefinition implements En{
             KieSession kSession =  kContainer.newKieSession("rules-session");
             kSession.insert(person);
             noOfRuleFired = kSession.fireAllRules();
+            kSession.dispose();
         });
 
         Then("atleast '(\\d+)' rule is executed", (Integer count) ->{

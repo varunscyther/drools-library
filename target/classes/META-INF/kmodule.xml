@@ -1,0 +1,9 @@
+<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.drools.org/xsd/kmodule">
+<kbase name="rules" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools">
+    <ksession name="rules-session" default="true"/>
+</kbase>
+<kbase name="multiThreadedRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.multiThreaded">
+    <ksession name="multiThreadedRule-session" default="true"/>
+</kbase>
+</kmodule>

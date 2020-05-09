@@ -7,25 +7,42 @@ public class Person {
 
     private String firstName;
 
-    public String getLastName() {
-        return lastName;
-    }
-
     private String lastName;
     private String houseNumber;
     private String streetNumber;
 
     private List<Address> addressList;
 
+    private Person oldData;
+
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+
+    }
+
+    public Person(String firstName, String lastName, Person oldData) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.oldData = oldData;
+
     }
 
     public String getFirstName() {
         return firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public List<Address> getSubModelAddressList() {
         List subModelAddressList = new ArrayList();
@@ -51,4 +68,13 @@ public class Person {
     public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
     }
+
+    public Person getOldData() {
+        return oldData;
+    }
+
+    public void setOldData(Person oldData) {
+        this.oldData = oldData;
+    }
+
 }

@@ -18,15 +18,15 @@ public class VerifyOldDataRuleWithXPath {
 
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession =  kContainer.newKieSession("ksession-rules");
+        KieSession kSession =  kContainer.newKieSession("rules-session");
         Company newData = newData();
         newData.setOld(oldData());
         kSession.insert(newData);
 
         int fired = kSession.fireAllRules();
+        kSession.dispose();
         System.out.println( "Number of Rules executed = " + fired );
         System.out.println( "Company Name : " + newData.getCmpName());
-
     }
 
     private static Company newData() {

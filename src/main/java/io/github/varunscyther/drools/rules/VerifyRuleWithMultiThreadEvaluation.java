@@ -23,7 +23,7 @@ public class VerifyRuleWithMultiThreadEvaluation {
 
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession =  kContainer.newKieSession("ksession-rules");
+        KieSession kSession =  kContainer.newKieSession("multiThreadedRule-session");
         Company newData = newData();
         newData.setOld(oldData());
         kSession.insert(newData);

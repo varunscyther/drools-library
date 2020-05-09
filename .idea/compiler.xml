@@ -9,7 +9,7 @@
         <module name="drools-library" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="drools-library" target="8" />
     </bytecodeTargetLevel>
   </component>

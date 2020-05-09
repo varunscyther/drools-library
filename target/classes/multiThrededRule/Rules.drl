@@ -1,0 +1,66 @@
+package io.github.varunscyther.drools.multiThreaded
+
+import io.github.varunscyther.drools.facts.Company;
+import io.github.varunscyther.drools.facts.Department;
+import io.github.varunscyther.drools.facts.Tribe;
+import io.github.varunscyther.drools.facts.Team;
+
+rule "Rule with XPath"
+dialect "java"
+when
+    a : Company( /departmentList/listOfTribe[ tribeName == "DEV"]/listOfTeam[ teamName == "STRIKER"] )
+then
+    System.out.println( "XPath Rule Matched..." );
+end
+
+rule "Rule with Old Data For XPath"
+dialect "java"
+when
+    a : Company( /old/departmentList/listOfTribe[ tribeName == "R&D"]/listOfTeam[ teamName == "RULE"] )
+then
+    System.out.println( "XPath Rule Matched For Old Data..." );
+end
+
+rule "Rule with XPath Multiple Constraints"
+dialect "java"
+when
+    a : Company( /departmentList/listOfTribe[ tribeName == "DEV", listOfTeam.size >= 1] )
+then
+    System.out.println( "XPath Multiple Constraints Rule Matched..." );
+end
+
+rule "Rule with XPath with Recursively Constraint"
+dialect "java"
+when
+    a : Company( /departmentList/listOfTribe[ /listOfTeam[ teamName == "STRIKER"]] )
+then
+    System.out.println( "XPath Recursively Constraint Rule Matched..." );
+end
+
+rule "Rule with XPath with count condition"
+dialect "java"
+when
+	accumulate(     
+		a : Company( /departmentList/listOfTribe[ /listOfTeam[ teamName == "STRIKER"]] ) ,
+		$cnt : count( 1 ) ;
+		$cnt == 1 )
+then
+    System.out.println( "XPath With Count Condition Rule Matched..." );
+end
+
+rule "Rule with XPath and between condition"
+dialect "java"
+when
+    a : Company( /departmentList/listOfTribe[ /listOfTeam[ teamSize < 2 , teamSize >= 1]] )
+    b : Company(cmpName == "AIRCODE", departmentList == a.getDepartmentList)
+then
+    System.out.println( "XPath With Between Condition Rule Matched..." );
+end
+
+rule "Rule with XPath and complex between condition"
+dialect "java"
+when
+    a : Company( /departmentList/listOfTribe/listOfTeam[startTime >= "1000" , startTime <= "1400"] [ startDate == "17-02-2019"])
+then
+    System.out.println( "XPath With Complex Between Condition Rule Matched..." );
+end
