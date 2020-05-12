@@ -29,7 +29,7 @@ This project will explain -
 * Picks one out and fire it.
 * Firing the rule modifies data.
 
-###Rule Design Principles
+### Rule Design Principles
 ```
 1. Rule idependency - A Rule should not be depend on any other specific rule.
    The rule should depend on the data instead.
@@ -41,13 +41,13 @@ This project will explain -
    the order of which rules are fired this should remain to special cases only.
 ```
 
-###Methods vs Rules
+### Methods vs Rules
 * Rule executed by matching against any data inserted in to the engine.
 * Rules can never be called directly.
 * Specific instances cannot be passed to the rule.
 * Depending  on the matches, a rule may fire once or several times, or not at all.
 
-###When to use Drools ? (Use Drools for systems where ....)
+### When to use Drools ? (Use Drools for systems where ....)
 * It is difficult for any one person to full understand without digging in
     + each business rule defines a small component of a complex scenario.
 
@@ -57,7 +57,7 @@ This project will explain -
     
 * Decision has to be made quickly.
 
-###Stateless Session
+### Stateless Session
 * Common use case for stateless session.
     * Validation
     * Calculation
@@ -71,7 +71,7 @@ This project will explain -
 * You cannot make Drools aware of changed state of an object.
 
 
-###Stateful Session
+### Stateful Session
 **If you modify an object in a stateful session then all affected rules automatically re-checked and re-run if needed.**
 
 Stateful sessions are used a lot for:
@@ -80,7 +80,7 @@ Stateful sessions are used a lot for:
 * Logistics
 * Compliance
 
-###Inference
+### Inference
 As per the dictionary, inference means, "An assumption or conclusion that is rationally and logically made, based on the given facts or circumstances."
 An inference is based off of facts, so the reasoning for the conclusion is often logical.
 
