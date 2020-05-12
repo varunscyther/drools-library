@@ -1,0 +1,27 @@
+package io.github.varunscyther.drools.statelessRule
+
+import io.github.varunscyther.drools.facts.Person;
+
+rule "Rule to validate stateless behaviour 1"
+dialect "java"
+when
+    (
+        $person : Person( firstName == "VARUN", lastName == "SINGH" )
+    )
+then
+    System.out.println( "Rule to validate stateless behaviour 1 matched ..." );
+    $person.setHouseNumber("103");
+    System.out.println($person.getHouseNumber());
+end
+
+rule "Rule to validate stateless behaviour 2"
+dialect "java"
+when
+    (
+        $p : Person( streetNumber == "PENYSTON ROAD", houseNumber == null)
+    )
+then
+    System.out.println( "Rule to validate stateless behaviour 2 matched ..." );
+    $p.setHouseNumber("104");
+    System.out.println($p.getHouseNumber());
+end

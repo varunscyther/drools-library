@@ -1,0 +1,25 @@
+package io.github.varunscyther.drools.inferenceRule
+
+import io.github.varunscyther.drools.facts.Company;
+import io.github.varunscyther.drools.facts.Department;
+import io.github.varunscyther.drools.facts.ITCompany;
+
+rule "Company Inference Rule 1"
+dialect "java"
+when
+    (
+        $department : Department( departmentName == "IT")
+    )
+then
+    System.out.println( "Company Inference Rule 1 matched ..." );
+end
+
+rule "Company Inference Rule 2"
+dialect "java"
+when
+    (
+        $cmp : Company()
+    )
+then
+    System.out.println( "Company Inference Rule 2 matched ..." );
+end

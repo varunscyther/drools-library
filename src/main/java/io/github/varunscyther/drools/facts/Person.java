@@ -10,6 +10,7 @@ public class Person {
     private String lastName;
     private String houseNumber;
     private String streetNumber;
+    private Company cmp;
 
     private List<Address> addressList;
 
@@ -26,6 +27,10 @@ public class Person {
         this.lastName = lastName;
         this.oldData = oldData;
 
+    }
+
+    private Person(Company cmp) {
+        this.cmp = cmp;
     }
 
     public String getFirstName() {
@@ -77,4 +82,11 @@ public class Person {
         this.oldData = oldData;
     }
 
+    public Company getCmp() {
+        return cmp;
+    }
+
+    public void setCmp(Company cmp) {
+        this.cmp = cmp;
+    }
 }

@@ -1,9 +1,18 @@
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.drools.org/xsd/kmodule">
 <kbase name="rules" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools">
-    <ksession name="rules-session" default="true"/>
+    <ksession name="rules-session" default="true" type="stateful"/>
 </kbase>
 <kbase name="multiThreadedRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.multiThreaded">
-    <ksession name="multiThreadedRule-session" default="true"/>
+    <ksession name="multiThreadedRule-session" default="true" type="stateful"/>
+</kbase>
+<kbase name="statelessRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.statelessRule">
+    <ksession name="statelessRule-session" default="true" type="stateless"/>
+</kbase>
+<kbase name="statefulRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.statefulRule">
+    <ksession name="statefulRule-session" default="true" type="stateful"/>
+</kbase>
+<kbase name="inferenceRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.inferenceRule">
+    <ksession name="inferenceRule-session" default="true" type="stateful"/>
 </kbase>
 </kmodule>

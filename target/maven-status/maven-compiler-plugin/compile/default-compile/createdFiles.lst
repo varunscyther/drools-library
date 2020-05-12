@@ -1,8 +1,10 @@
 io/github/varunscyther/drools/facts/Address.class
+io/github/varunscyther/drools/facts/ITCompany.class
 io/github/varunscyther/drools/rules/VerifyRuleWithMultiThreadEvaluation.class
 io/github/varunscyther/drools/facts/Department.class
 io/github/varunscyther/drools/facts/Team.class
 io/github/varunscyther/drools/common/Action.class
+io/github/varunscyther/drools/rules/VerifyInferenceBehaviour.class
 io/github/varunscyther/drools/rules/VerifyOldDataRuleWithXPath.class
 io/github/varunscyther/drools/facts/Company.class
 io/github/varunscyther/drools/facts/Person.class

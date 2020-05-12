@@ -11,6 +11,10 @@ public class Department {
         this.listOfTribe = listOfTribe;
     }
 
+    public Department(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
     public String getDepartmentName() {
         return departmentName;
     }
