@@ -15,4 +15,7 @@
 <kbase name="inferenceRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.inferenceRule">
     <ksession name="inferenceRule-session" default="true" type="stateful"/>
 </kbase>
+<kbase name="crossProductRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.crossProductRule">
+    <ksession name="crossProductRule-session" default="true" type="stateful"/>
+</kbase>
 </kmodule>

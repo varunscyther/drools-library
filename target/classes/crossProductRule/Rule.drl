@@ -1,0 +1,50 @@
+package io.github.varunscyther.drools.crossProductRule
+
+import io.github.varunscyther.drools.crossproduct.facts.Passport;
+import io.github.varunscyther.drools.crossproduct.facts.VisaApplication;
+import io.github.varunscyther.drools.common.Validation;
+import java.time.LocalDate;
+
+rule "Invalidate visa application in case passport is invalid"
+dialect "java"
+when
+    (
+        $passport: Passport( validation == Validation.FAILED) and
+        $visaApplication: VisaApplication( passportNumber == $passport.getPassportNumber() )
+    )
+then
+    System.out.println( "Passport is invalid so visa application is invalid to..." );
+    modify($visaApplication){
+        setValidation( Validation.FAILED )
+    }
+end
+
+rule "Check visa application is pass or not"
+dialect "java"
+when
+    (
+        $visaApplication: VisaApplication( validation == Validation.UNKNOWN )
+    )
+then
+    System.out.println( "Set visa application to pass  ..." );
+    modify($visaApplication) {
+        setValidation( Validation.PASSED )
+    }
+end
+
+rule "Invalidate visa application if passport expires earlier than 6 month after visa expire"
+dialect "java"
+when
+    (
+        $passport : Passport() and
+        $visaApplication: VisaApplication( passportNumber == $passport.getPassportNumber(),
+        $passport.getPassportExpiryDate().isBefore($visaApplication.getVisaExpiryDate().plusMonths(6)),
+        $visaApplication.validation == null,
+        $visaApplication.validation != Validation.FAILED)
+    )
+then
+    System.out.println( "Set visa application to invalid  ..." );
+    modify($visaApplication) {
+        setValidation( Validation.FAILED )
+    }
+end

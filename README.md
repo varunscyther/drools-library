@@ -66,7 +66,7 @@ This project will explain -
 * A good practice is to write rules as short as possible.
     * Split longer rules n smaller ones whenever you can.
 * You can assign variables to matched objects and fields.
-* It is good pratice to start a variable name with $-sign.
+* It is good practice starting a variable name with $-sign.
 * You can change the state of the objects during session.
 * You cannot make Drools aware of changed state of an object.
 
@@ -80,6 +80,15 @@ Stateful sessions are used a lot for:
 * Logistics
 * Compliance
 
+You need stateful sessions if you use inference - this is one rule setting information and other rules consume.
+Usage of modify keyword - 
+* Use it to make Drools aware of the changes.
+* Other rules are automatically re-run if needed.
+* It takes an object as parameter. 
+* In the body of modify you can call several methods of the objects.
+
+Call dispose() method in the end of Drools session to avoid memory leaks. 
+
 ### Inference
 As per the dictionary, inference means, "An assumption or conclusion that is rationally and logically made, based on the given facts or circumstances."
 An inference is based off of facts, so the reasoning for the conclusion is often logical.
@@ -89,6 +98,25 @@ Refer - https://docs.jboss.org/drools/release/7.36.0.Final/drools-docs/html_sing
 The Drools engine makes inferences based on existing knowledge and performs the actions based on the inferred information.
 
 
+### Cross Product
+
+* Often one rule needs to look at combination of different objects.
+    * Like passport needs to be examined with together with a visa application.
+* This is very similar to SQL JOIN -
+    * SQL JOIN is used when selecting from multiple tables.
+    * For joining, we have to describe how tables are related. 
+* In Drools join is called cross products.
+    * Pattern matching looks if combination of objects exists.
+    * We have to write in the when part how objects refer to each other.
+    
+**Pattern matching and cross products**
+* Pattern matching in Drools is like selecting in SQL.
+* Cross products is like joining in SQL.
+* When matching pair of objects (or more), write down how objects are connected with each other.
+* If you set property to a value at THEN side then update WHEN side to check that property is not already with this value.  
+
+    
+ 
 
 
 
