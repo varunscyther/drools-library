@@ -1,0 +1,22 @@
+package io.github.varunscyther.drools.insertFactsRule
+
+import io.github.varunscyther.drools.crossproduct.facts.Passport;
+import io.github.varunscyther.drools.crossproduct.facts.VisaApplication;
+import io.github.varunscyther.drools.common.Validation;
+import io.github.varunscyther.drools.common.Action;
+import java.time.LocalDate;
+
+rule "Check all visa application with unknown status"
+dialect "java"
+when
+    (
+        $visaApplication: VisaApplication( validation == Validation.UNKNOWN )
+    )
+then
+    System.out.println( "Visa application is unknown for following passport : "  + $visaApplication.getPassportNumber());
+    Action action = new Action();
+    action.setRuleName("Check all visa application with unknown status");
+    action.getActionParamters().put("passportNumber", $visaApplication.getPassportNumber());
+    action.getActionParamters().put("applicationId", $visaApplication.getApplicationId());
+    insert(action);
+end

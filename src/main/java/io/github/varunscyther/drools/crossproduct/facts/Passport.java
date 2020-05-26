@@ -139,4 +139,5 @@ public class Passport {
     public int hashCode() {
         return Objects.hash(getName(), getPassportNumber(), getUnusedVisaPages(), getPassportExpiryDate(), getComment(), getValidation());
     }
+
 }

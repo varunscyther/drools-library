@@ -18,4 +18,25 @@
 <kbase name="crossProductRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.crossProductRule">
     <ksession name="crossProductRule-session" default="true" type="stateful"/>
 </kbase>
+<kbase name="insertFactsRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.insertFactsRule">
+    <ksession name="insertFactsRule-session" default="true" type="stateful"/>
+</kbase>
+<kbase name="agendaGroupRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.agendaGroupRule">
+    <ksession name="agendaGroupRule-session" default="true" type="stateful"/>
+</kbase>
+<kbase name="activationGroupRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.activationGroupRule">
+    <ksession name="activationGroupRule-session" default="true" type="stateful"/>
+</kbase>
+<kbase name="insertLogicalRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.insertLogicalRule">
+    <ksession name="insertLogicalRule-session" default="true" type="stateful"/>
+</kbase>
+<kbase name="groupRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.groupRule">
+    <ksession name="groupRule-session" default="true" type="stateful"/>
+</kbase>
+<kbase name="existsRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.existsRule">
+    <ksession name="existsRule-session" default="true" type="stateful"/>
+</kbase>
+<kbase name="forAllRule" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="io.github.varunscyther.drools.forAllRule">
+    <ksession name="forAllRule-session" default="true" type="stateful"/>
+</kbase>
 </kmodule>

@@ -1,0 +1,47 @@
+package io.github.varunscyther.drools.existsRule
+
+import io.github.varunscyther.drools.crossproduct.facts.FamilyVisaApplication;
+import io.github.varunscyther.drools.crossproduct.facts.Passport;
+import io.github.varunscyther.drools.crossproduct.facts.InvalidPassport;
+import io.github.varunscyther.drools.crossproduct.facts.InvalidFamilyVisaApplication;
+import io.github.varunscyther.drools.crossproduct.facts.Visa
+import io.github.varunscyther.drools.common.Validation;
+
+rule "Insert invalid passport object in case passport is invalid"
+dialect "java"
+salience 5
+when
+    (
+        $passport: Passport( validation == Validation.FAILED)
+    )
+then
+    System.out.println( "Passport is invalid so inserting invalid passport object..."  + $passport.getPassportNumber());
+    insert( new InvalidPassport($passport) );
+end
+
+rule "Insert invalid family visa application in case passport is invalid"
+dialect "java"
+salience 3
+when
+    (
+        $familyVisaApplication: FamilyVisaApplication() and
+        exists ($passport: Passport() and
+         $invalidPassport: InvalidPassport( $familyVisaApplication.getPassportNumbers().contains(this.passport.getPassportNumber()) ))
+    )
+then
+    System.out.println( "Passport is invalid so inserting invalid family visa application ..." + $familyVisaApplication);
+    insert( new InvalidFamilyVisaApplication($familyVisaApplication) );
+end
+
+rule "Issue visas for valid applications"
+	dialect "java"
+	salience 2
+	when
+		$familyVisaApplication: FamilyVisaApplication( ) and
+		not ( InvalidFamilyVisaApplication( this.familyVisaApplication == $familyVisaApplication ) )
+	then
+		for (String passportNumber : $familyVisaApplication.getPassportNumbers()) {
+		  System.out.println( "Issue visa for passport number " + passportNumber);
+		  insertLogical( new Visa( passportNumber ) );
+		}
+end

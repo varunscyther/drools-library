@@ -1,7 +1,10 @@
 package io.github.varunscyther.drools.common;
 
+import io.github.varunscyther.drools.crossproduct.facts.FamilyVisaApplication;
 import io.github.varunscyther.drools.crossproduct.facts.Passport;
 import io.github.varunscyther.drools.crossproduct.facts.VisaApplication;
+import io.github.varunscyther.drools.facts.Person;
+import static java.util.Arrays.asList;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -62,6 +65,7 @@ public class DataRepository {
                 .withPassportNumber(ANITA_SINGH_PASSPORT_NO)
                 .withVisaStartDate(LocalDate.of(2020, Month.MAY, 14))
                 .withVisaExpiryDate(LocalDate.of(2020, Month.NOVEMBER, 14))
+                .withValidation(Validation.UNKNOWN)
                 .build());
 
         visaApplications.add(VisaApplication.newBuilder()
@@ -69,6 +73,7 @@ public class DataRepository {
                 .withPassportNumber(K_SINGH_PASSPORT_NO)
                 .withVisaStartDate(LocalDate.of(2019, Month.MAY, 10))
                 .withVisaExpiryDate(LocalDate.of(2019, Month.NOVEMBER, 10))
+                .withValidation(Validation.UNKNOWN)
                 .build());
 
 
@@ -77,6 +82,7 @@ public class DataRepository {
                 .withPassportNumber(VARUN_SINGH_PASSPORT_NO)
                 .withVisaStartDate(LocalDate.of(2020, Month.JANUARY, 01))
                 .withVisaExpiryDate(LocalDate.of(2020, Month.MAY, 01))
+                .withValidation(Validation.UNKNOWN)
                 .build());
 
         visaApplications.add(VisaApplication.newBuilder()
@@ -84,9 +90,48 @@ public class DataRepository {
                 .withPassportNumber(SWATI_SINGH_PASSPORT_NO)
                 .withVisaStartDate(LocalDate.of(2020, Month.APRIL, 18))
                 .withVisaExpiryDate(LocalDate.of(2020, Month.AUGUST, 18))
+                .withValidation(Validation.UNKNOWN)
                 .build());
 
         return visaApplications;
+    }
+
+    public static List<Person> getPersons() {
+        List<Person> persons = new ArrayList<>();
+
+        Person person1 = new Person("VARUN", "SINGH");
+        person1.setHouseNumber("103");
+        person1.setStreetNumber("PENYSTON ROAD");
+        persons.add(person1);
+
+        Person person2 = new Person("ANITA", "SINGH");
+        person2.setHouseNumber("1401");
+        person2.setStreetNumber("RG RESIDENCY");
+        persons.add(person2);
+
+        return persons;
+
+    }
+
+    public static List<FamilyVisaApplication> getFamilyVisaApplication() {
+        List<FamilyVisaApplication> familyVisaApplication = new ArrayList<>();
+
+        familyVisaApplication.add(FamilyVisaApplication.newBuilder()
+                .withApplicationId("KL9090")
+                .withPassportNumbers(asList(ANITA_SINGH_PASSPORT_NO, K_SINGH_PASSPORT_NO))
+                .withVisaStartDate(LocalDate.of(2020, Month.MAY, 14))
+                .withVisaExpiryDate(LocalDate.of(2020, Month.NOVEMBER, 14))
+                .build());
+
+
+        familyVisaApplication.add(FamilyVisaApplication.newBuilder()
+                .withApplicationId("KL9092")
+                .withPassportNumbers(asList(VARUN_SINGH_PASSPORT_NO, SWATI_SINGH_PASSPORT_NO))
+                .withVisaStartDate(LocalDate.of(2020, Month.JANUARY, 01))
+                .withVisaExpiryDate(LocalDate.of(2020, Month.MAY, 01))
+                .build());
+
+        return familyVisaApplication;
     }
 
 }

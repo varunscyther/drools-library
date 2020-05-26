@@ -1,0 +1,48 @@
+package io.github.varunscyther.drools.insertLogicalRule
+
+import io.github.varunscyther.drools.crossproduct.facts.Passport;
+import io.github.varunscyther.drools.crossproduct.facts.VisaApplication;
+import io.github.varunscyther.drools.common.Validation;
+import io.github.varunscyther.drools.crossproduct.facts.Visa;
+import java.time.LocalDate;
+
+rule "Check the whether passport is valid or not"
+dialect "java"
+when
+    (
+        $passport: Passport( validation == Validation.FAILED ) and
+        $visaApplication: VisaApplication(passportNumber == $passport.getPassportNumber())
+    )
+then
+    System.out.println( "Passport is invalid : "  + $passport.getPassportNumber());
+    modify($visaApplication) {
+        setValidation(Validation.FAILED)
+    }
+end
+
+rule "Check the whether passport is unknown or not"
+dialect "java"
+when
+    (
+        $passport: Passport( validation == Validation.UNKNOWN ) and
+        $visaApplication: VisaApplication(passportNumber == $passport.getPassportNumber())
+    )
+then
+    System.out.println( "Passport is invalid : "  + $passport.getPassportNumber());
+    modify($visaApplication) {
+        setValidation(Validation.UNKNOWN)
+    }
+end
+
+
+rule "Check the insert logical behaviour"
+dialect "java"
+when
+    (
+        $visaApplication: VisaApplication( validation == Validation.PASSED )
+    )
+then
+    System.out.println( "Visa application is passed for following passport : "  + $visaApplication.getPassportNumber());
+    Visa visa = new Visa($visaApplication.getPassportNumber());
+    insertLogical(visa);
+end

@@ -113,7 +113,66 @@ The Drools engine makes inferences based on existing knowledge and performs the 
 * Pattern matching in Drools is like selecting in SQL.
 * Cross products is like joining in SQL.
 * When matching pair of objects (or more), write down how objects are connected with each other.
-* If you set property to a value at THEN side then update WHEN side to check that property is not already with this value.  
+* If you set property to a value at THEN side then update WHEN side to check that property is not already with this value.
+
+###Adding new facts & setting execution order
+Drools can insert new facts in the session.
+* Inserting new facts is another form of inference - creating new knowledge.
+
+Rule execution order can be controlled using either of:
+* salience
+* agenda-group
+
+```` 
+1. You can set expiration date for any Rule.
+2. You can insert new facts in to session by Drools rule.
+   - You can get all the facts from session to Java code.
+3. When two or more rules can trigger - this is called conflict and how Drools solves it's conflict resolution.
+4. You can control order using salience or agenda group.
+   - Rule with largest salience value is triggered first.
+   - Agenda groups are pushed in to stack by setting focus to them.
+   - Agenda groups are popped from stack by Drools.
+   - If you use salience and agenda group at same time - salience only has effect within particular agenda group.
+5. If two or more rules belong to same activation group the maximum one Rule is run and only once.
+````
+
+###Logical facts
+* Insert new objects using "insertLogical()"
+    * If we insert object logically and later same expression becomes false then the object is deleted.
+* Use "not()" if you need to match fact doesn't exist.
+* Reduce the number of Rules needed by matching more than two objects at once.
+
+####insertLogical()
+* Insert a fact in to session.
+* Existence of the inserted fact is tied with truth of when side of the rule that inserted a fact.
+* If the expression on when side becomes false the fact is removed.
+
+####Fact Objects
+* Prefer them over changing objects.
+
+####Use Drools event listeners for debugging
+* DebugAgendaEventListener
+* RuleRuntimeEventListener
+
+###Check facts exist
+* exists -  Use to check that at least one facts exists.
+* forall - evaluates to true when
+         * all facts that match the first pattern.
+         * also matches all the remaining pattern.
+* Using forall to extract a fact from a group.
+    * We can extract fact with a smallest/largest value
+    
+###Working with group of facts
+* If you want to check that in the session at least one fact exists - use exists.
+* If you want to test that a specific expression is valid for all - use forall.
+* You can also use forall to find items with lowest/highest value from collection.
+    
+
+
+         
+
+
+
 
     
  

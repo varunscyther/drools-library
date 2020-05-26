@@ -1,0 +1,17 @@
+package io.github.varunscyther.drools.forAllRule
+
+import io.github.varunscyther.drools.crossproduct.facts.Passport;
+import io.github.varunscyther.drools.common.Validation
+
+rule "Check forall keyword behaviour"
+dialect "java"
+when
+    (
+        forall (
+            $passport: Passport( unusedVisaPages > 0) ,
+                       Passport(validation in (Validation.FAILED, Validation.UNKNOWN))
+        )
+    )
+then
+    System.out.println( "ForAll rule matched and executed" );
+end

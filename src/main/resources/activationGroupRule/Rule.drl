@@ -1,0 +1,52 @@
+package io.github.varunscyther.drools.activationGroupRule
+
+import io.github.varunscyther.drools.facts.Person
+
+rule "Rule to check whether first name exist in fact"
+dialect "java"
+activation-group "personal-information"
+salience 1
+when
+    (
+        Person( firstName != null)
+    )
+then
+    System.out.println( "First name is not null.." );
+end
+
+rule "Rule to check whether last name exist in fact"
+dialect "java"
+activation-group "personal-information"
+salience 2
+when
+    (
+        Person( lastName != null)
+    )
+then
+    System.out.println( "Last name is not null.." );
+end
+
+rule "Rule to check whether person has address information"
+dialect "java"
+activation-group "address-information"
+salience 1
+when
+    (
+        Person( houseNumber != null)
+    )
+then
+    System.out.println( "House number exist.." );
+end
+
+rule "Rule to check whether person has full address information"
+dialect "java"
+activation-group "address-information"
+salience 2
+when
+    (
+        Person( houseNumber != null, streetNumber != null)
+    )
+then
+    System.out.println( "Full address information exist.." );
+end
+
