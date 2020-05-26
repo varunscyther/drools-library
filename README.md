@@ -115,7 +115,7 @@ The Drools engine makes inferences based on existing knowledge and performs the 
 * When matching pair of objects (or more), write down how objects are connected with each other.
 * If you set property to a value at THEN side then update WHEN side to check that property is not already with this value.
 
-###Adding new facts & setting execution order
+### Adding new facts & setting execution order
 Drools can insert new facts in the session.
 * Inserting new facts is another form of inference - creating new knowledge.
 
@@ -136,25 +136,25 @@ Rule execution order can be controlled using either of:
 5. If two or more rules belong to same activation group the maximum one Rule is run and only once.
 ````
 
-###Logical facts
+### Logical facts
 * Insert new objects using "insertLogical()"
     * If we insert object logically and later same expression becomes false then the object is deleted.
 * Use "not()" if you need to match fact doesn't exist.
 * Reduce the number of Rules needed by matching more than two objects at once.
 
-####insertLogical()
+#### insertLogical()
 * Insert a fact in to session.
 * Existence of the inserted fact is tied with truth of when side of the rule that inserted a fact.
 * If the expression on when side becomes false the fact is removed.
 
-####Fact Objects
+#### Fact Objects
 * Prefer them over changing objects.
 
-####Use Drools event listeners for debugging
+#### Use Drools event listeners for debugging
 * DebugAgendaEventListener
 * RuleRuntimeEventListener
 
-###Check facts exist
+### Check facts exist
 * exists -  Use to check that at least one facts exists.
 * forall - evaluates to true when
          * all facts that match the first pattern.
@@ -162,7 +162,7 @@ Rule execution order can be controlled using either of:
 * Using forall to extract a fact from a group.
     * We can extract fact with a smallest/largest value
     
-###Working with group of facts
+### Working with group of facts
 * If you want to check that in the session at least one fact exists - use exists.
 * If you want to test that a specific expression is valid for all - use forall.
 * You can also use forall to find items with lowest/highest value from collection.
